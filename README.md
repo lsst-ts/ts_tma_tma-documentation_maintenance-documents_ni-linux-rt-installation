@@ -3,9 +3,11 @@
 ## Generate NI Linux RT USB
 
 - Open the NI MAX
+
   ![Generate NI Linux RT USB](./resources/NIMAX_LinuxRTrecoveryUSB.png)
 
 - Select the image to flash to the USB.
+
   ![DiskFlashUtility](./resources/NiMaxDiskFormatUtility.png)
   > For using LV 2020, that uses the recovery image 8.0, the maximum allowed intel generation, in DELL computers, is the
   > 10th generation. This recovery version 8.0 is not compatible with newer intel versions, tested **only** in DELL machines.
@@ -19,6 +21,7 @@ For installing the recovery image the BIOS must be set accordingly:
 - Boot mode set to UEFI
 - Disable secure BOOT
 - Disable RAID for better compatibility and ensure hard drive detection
+
   ![BIOS Storage Configuration](./resources/BiosStorageConfiguration.jpeg)
 
 ## After using the USB
@@ -26,15 +29,19 @@ For installing the recovery image the BIOS must be set accordingly:
 Install real time packages from the NI MAX.
 
 - Install RT image
+
   ![Step 1](./resources/MaxStepsAfterUsbUsage_1.png)
 
 - Select programming environment
+
   ![Step 2](./resources/MaxStepsAfterUsbUsage_2.png)
 
 - Install required packages
+
   ![Step 3](./resources/MaxStepsAfterUsbUsage_3.png)
 
 - Set SSH password
+
   ![Step 4](./resources/MaxStepsAfterUsbUsage_4.png)
 
 ## After installation to set as PXI
@@ -143,18 +150,23 @@ Define the system as a cRIO.
 ### Creating a Virtual Machine for NI Linux RT
 
 - Choose Linux as Type and Ubuntu (64-bit) as version
+
   ![Graphical user interface, application Description automatically generated](./resources/13a10f4949efa159508082f2fb011dec.png)
 
 - Choose 1024 or 2048 as your memory size (this can be changed later if needed)
+
   ![Graphical user interface, text, application Description automatically generated](./resources/2ee6ee07da398799ba65d5d2a833192c.png)
 
 - Choose to create a virtual hard drive (at least 4 GB)
+
   ![Graphical user interface, text, application Description automatically generated](./resources/7d0f798ec8815c5186a514429d7dc88b.png)
 
 - Choose VDI as your hard disk type
+
   ![Graphical user interface, text, application, email Description automatically generated](./resources/4e4fc832bb90df31c35e292600d0fbe1.png)
 
 - Choose Dynamically allocated as how the data is stored (both options will work, this takes less space on your host system)
+
   ![Graphical user interface, text, application, email Description automatically generated](./resources/6319dcbf4760d3f7e8263a8071356599.png)
 
 - Once the virtual machine has been created, copy the image from
@@ -168,15 +180,19 @@ Define the system as a cRIO.
 
 - Select your virtual machine (NILRT in my case) and click on the settings gear
 - Go to settings -> system -> Motherboard and check the box "Enable EFI (Special OSes only)
+
   ![Graphical user interface, text, application, email Description automatically generated](./resources/4d7e535ec0b747d43ddcb9e61be2a2da.png)
 
 - Go to Settings -> Storage and select the optical storage device
+
   ![Graphical user interface, application Description automatically generated](./resources/c65596c83c8aec6ae8a3440de759f66d.png)
 
 - Click the options menu of the optical drive in the top right corner (little blue "wheel") and select the option "Choose a disk file"
+
   ![Graphical user interface, text, application Description automatically generated](./resources/b8dc84104a1bb469b0a640dec1c34399.png)
 
 - Navigate to where you have stored your NILRT recovery iso file and select it
+
   ![Graphical user interface, application Description automatically generated with medium confidence](./resources/f739a9c60e03284fe134399ef9601771.png)
   ![Graphical user interface, application Description automatically generated](./resources/b4df7f41ab65107f543cf6a451a18195.png)
 
@@ -192,25 +208,31 @@ Define the system as a cRIO.
 
 - Expand the advanced menu and select the Intel PRO/1000 MT Desktop as your Adapter type (usually the default one.
   NI ships most of their controllers with Intel based hardware)
+
   ![Graphical user interface, text, application, email Description automatically generated](./resources/cacb2cfe9a689a43967e40d6eaac6b2b.png)
 
 - Select the settings -> Serial Ports -> Port 1 tab
 - Check the box `Enable Serial Port`
   - This is needed for one of the hardware authentication steps in the NILRT installer and will fail if not enabled
+
   ![Graphical user interface, text, application Description automatically generated](./resources/0391e8f095ee02c6fac358aa35fd4d18.png)
 
 - Select **USB 3.0 as your USB controller** (USB keyboards and other USB based peripherals will not work unless you do this)
+
   ![Graphical user interface, text, application Description automatically generated](./resources/d63637ca5b7d30ad39054033f9266be4.png)
 
 ### Installing NILRT from the ISO
 
 - DoubleClick or hit the `start` arrow to run the machine
+
   ![Graphical user interface, application Description automatically generated](./resources/bbeec7ed20a3c6f5268d7f123315d53b.png)
 
 - Select the ISO as your startup drive/disk
+
   ![Graphical user interface, application, Word Description automatically generated](./resources/946aa48c65926b750805fb621de1d763.png)
 
 - choose "y" (yes) when the installer prompts you if you want to continue
+
   ![Graphical user interface, text Description automatically generated](./resources/03428fc46af881ddf35519247d1f86f4.png)
 
 > If you are using a USB based keyboard, the installer might refuse to take any keyboard inputs at this step. If this
@@ -220,9 +242,11 @@ Define the system as a cRIO.
   ![Graphical user interface, text, application Description automatically generated](./resources/971ec6af1f98b71e542c32a62d84104c.png)
 
 - When the process finishes, it will ask you to restart the machine:
+
   ![Restart request](./resources/3b74a8b55d0980b2c2dc63109d897054.png)
 
 - After restarting you'll get the following screen:
+
   ![NI Linux RT welcome screen](./resources/8d58c75a5554dbc51ae894b079a02449.png)
 
 - That's it, the system should now be discoverable from MAX and you can install all drivers from there.
@@ -232,16 +256,20 @@ Define the system as a cRIO.
 
 - From NI MAX -> Remote systems -> Your remote device -> Open the device submenu clicking on the arrow ->
   Right click on `Software` -> Click on Add/Remove Software
+
   ![Graphical user interface, text, application Description automatically generated](./resources/43365f05427d7b23c09a9459e8d5d623.png)
 
 - If the credentials screen opens, the default user is "admin" and leave password empty. Click enter to proceed to the
   following screen
+
   ![Graphical user interface, text, application, Word, email Description automatically generated](./resources/2e89e61037b1a40bf763007efe2d5877.png)
 
 - Select the OS to install:
+
   ![Graphical user interface, text, application Description automatically generated](./resources/4d24dc34038547bd096a75b72167b45c.png)
 
 - Wait for this to finish and restart
+
   ![Graphical user interface, text, application, Word Description automatically generated](./resources/a03fafe9825d3cdc1356760743e755e5.png)
   ![Graphical user interface, text, application Description automatically generated](./resources/0ad646e604d41c7af92084b98ad900d4.png)
 
