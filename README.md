@@ -199,11 +199,6 @@ Define the system as a cRIO.
 - Go to network and in the adapter 1 tab, select the `Enable Network Adapter` checkbox (usually selected by default)
 - Choose `Attached to: Bridged Adapter` and select your main network card as the Name
 
-> If you want to use a bridged connection at CERN, your virtual Ethernet adapter has to be registered in netops,
-> if not use a Host-only Adapter connection instead please see
-> [**this guide**](https://readthedocs.web.cern.ch/display/MTA/%5BNILRT%5D+Virtual+Box+Host+Only+Adapter) for
-> setting up a host only adapter
-
   ![Graphical user interface, text, application, email Description automatically generated](./resources/403a2d3a4f515402ca3e7f3328387e94.png)
 
 - Expand the advanced menu and select the Intel PRO/1000 MT Desktop as your Adapter type (usually the default one.
